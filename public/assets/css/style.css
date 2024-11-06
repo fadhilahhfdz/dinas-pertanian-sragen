@@ -1,0 +1,18 @@
+.nav {
+    text-color: white;
+}
+
+#hero {
+    position:relative;
+}
+
+#hero:before {
+    position:absolute;
+	content:"";
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	background: white;
+	opacity:0.8;
+}
