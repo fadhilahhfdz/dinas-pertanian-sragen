@@ -104,8 +104,26 @@
                         <li class="nav-header">KONTEN</li>
                         <li class="nav-item">
                             <a href="/admin/profil" class="nav-link">
-                                <i class="fas fa-address-card nav-icon"></i>
+                                <i class="fas fa-minus nav-icon"></i>
                                 <p>Profil</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/informasi-publik" class="nav-link">
+                                <i class="fas fa-minus nav-icon"></i>
+                                <p>Informasi Publik</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/pelayanan-umum" class="nav-link">
+                                <i class="fas fa-minus nav-icon"></i>
+                                <p>Pelayanan Umum</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/program-kegiatan" class="nav-link">
+                                <i class="fas fa-minus nav-icon"></i>
+                                <p>Program Kegiatan</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -130,24 +148,6 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/galeri" class="nav-link">
-                                <i class="fas fa-camera nav-icon"></i>
-                                <p>Galeri</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/unduhan" class="nav-link">
-                                <i class="fas fa-download nav-icon"></i>
-                                <p>Unduhan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/ppid" class="nav-link">
-                                <i class="fas fa-book nav-icon"></i>
-                                <p>PPID</p>
-                            </a>
                         </li>
                         <li class="nav-header">PENGATURAN TAMPILAN</li>
                         <li class="nav-item">

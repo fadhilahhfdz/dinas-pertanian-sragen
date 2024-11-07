@@ -80,10 +80,22 @@
                 <div class="navbar-nav ms-auto py-0">
                     <a href="/" class="nav-item nav-link">Beranda</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Informasi Publik</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="price.html" class="dropdown-item">Pricing Plan</a>
-                        </div>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profil</a>
+                        {{-- @foreach ($profil as $item)
+                            <div class="dropdown-menu m-0">
+                                <a href="/profil/{{ Crypt::encryptString($item->id) }}" class="dropdown-item">{{ $item->judul }}</a>
+                            </div>
+                        @endforeach --}}
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Informasi
+                            Publik</a>
+                        @foreach ($informasiPublik as $item)
+                            <div class="dropdown-menu m-0">
+                                <a href="/informasi-publik/{{ Crypt::encryptString($item->id) }}"
+                                    class="dropdown-item">{{ $item->judul }}</a>
+                            </div>
+                        @endforeach
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pelayanan Umum</a>
@@ -92,13 +104,14 @@
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Program Kegiatan</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Program
+                            Kegiatan</a>
                         <div class="dropdown-menu m-0">
                             <a href="price.html" class="dropdown-item">Pricing Plan</a>
                         </div>
                     </div>
                     <a href="/berita" class="nav-item nav-link">Berita</a>
-                    
+
                 </div>
                 <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal"
                     data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
@@ -106,7 +119,7 @@
         </nav>
 
         @yield('content')
-        
+
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container">
@@ -206,7 +219,8 @@
                 <div class="row justify-content-end">
                     <div class="col-lg-8 col-md-6">
                         <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
-                            <p class="mb-0">&copy; <a class="text-white border-bottom" href="#">2024</a>. All Rights Reserved.
+                            <p class="mb-0">&copy; <a class="text-white border-bottom" href="#">2024</a>. All
+                                Rights Reserved.
                             </p>
                         </div>
                     </div>

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\InformasiPublikController;
+use App\Http\Controllers\UserViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('user.index');
-});
+// Index
+Route::get('/', [UserViewController::class, 'index']);
 
 // Auth
 Route::get('/register', [AuthController::class, 'index']);
@@ -25,7 +26,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/login', function() {
     return Auth::check() ? redirect('/admin/dashboard') : view('admin.auth.login');
-})->middleware('guest');
+})->middleware('guest')->name('login');
 
 // Admin
 Route::group(['middleware' => ['auth']], function() {
@@ -36,6 +37,14 @@ Route::group(['middleware' => ['auth']], function() {
     // Profile
     Route::get('/admin/profile/{id}', [AuthController::class, 'profile']);
     Route::put('/admin/profile/{id}', [AuthController::class, 'edit_profile']);
+
+    // Informasi Publik
+    Route::get('/admin/informasi-publik', [InformasiPublikController::class, 'index']);
+    Route::get('/admin/informasi-publik/create', [InformasiPublikController::class, 'create']);
+    Route::post('/admin/informasi-publik/create', [InformasiPublikController::class, 'store']);
+    Route::get('/admin/informasi-publik/edit/{id}', [InformasiPublikController::class, 'edit']);
+    Route::put('/admin/informasi-publik/edit/{id}', [InformasiPublikController::class, 'update']);
+    Route::get('/admin/informasi-publik/delete/{id}', [InformasiPublikController::class, 'destroy']);
 });
 
 // Berita
