@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\InformasiPublikController;
 use App\Http\Controllers\UserViewController;
 use Illuminate\Support\Facades\Route;
@@ -45,9 +46,19 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/informasi-publik/edit/{id}', [InformasiPublikController::class, 'edit']);
     Route::put('/admin/informasi-publik/edit/{id}', [InformasiPublikController::class, 'update']);
     Route::get('/admin/informasi-publik/delete/{id}', [InformasiPublikController::class, 'destroy']);
+
+    // Informasi Web
+    Route::get('/admin/informasi', [InformasiController::class, 'index']);
+    Route::post('/admin/informasi/create', [InformasiController::class, 'store']);
+    Route::get('/admin/informasi/edit/{id}', [InformasiController::class, 'edit']);
+    Route::put('/admin/informasi/edit/{id}', [InformasiController::class, 'update']);
+    Route::get('/admin/informasi/delete/{id}', [InformasiController::class, 'destroy']);
 });
 
 // Berita
 Route::get('/berita', function () {
     return view('user.berita.berita-all');
 });
+
+// Informasi Publik
+Route::get('/informasi-publik/{id}', [InformasiPublikController::class, 'show']);

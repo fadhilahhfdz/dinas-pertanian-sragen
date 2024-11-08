@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Informasi;
 use App\Models\InformasiPublik;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class InformasiPublikController extends Controller
 {
@@ -47,9 +49,21 @@ class InformasiPublikController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(InformasiPublik $informasiPublik)
+    public function show($id)
     {
-        //
+        try {
+            $decryptId = Crypt::decryptString($id);
+        } catch (\Illuminate\Contracts\Encryption\DecryptException $e) {
+            abort(404, 'Id tidak valid');
+        }
+
+        $informasiPublik = InformasiPublik::findOrFail($decryptId);
+
+        $dropdownInformasiPublik = InformasiPublik::all();
+
+        $informasi = Informasi::all();
+
+        return view('user.informasi-publik', compact('informasiPublik', 'dropdownInformasiPublik', 'informasi'));
     }
 
     /**

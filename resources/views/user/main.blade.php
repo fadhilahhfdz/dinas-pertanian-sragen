@@ -46,8 +46,8 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>{{ $informasi->telepon }}</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>{{ $informasi->email }}</small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
@@ -70,8 +70,8 @@
     <!-- Navbar & Carousel Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-            <a href="index.html" class="navbar-brand p-0">
-                <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>Startup</h1>
+            <a href="/" class="navbar-brand p-0">
+                <h1 class="m-0"><img src="{{ asset($informasi->logo) }}" width="75">DINAS PERTANIAN</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -90,7 +90,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Informasi
                             Publik</a>
-                        @foreach ($informasiPublik as $item)
+                        @foreach ($dropdownInformasiPublik as $item)
                             <div class="dropdown-menu m-0">
                                 <a href="/informasi-publik/{{ Crypt::encryptString($item->id) }}"
                                     class="dropdown-item">{{ $item->judul }}</a>

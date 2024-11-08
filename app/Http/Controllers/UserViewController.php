@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Informasi;
 use App\Models\InformasiPublik;
 use Illuminate\Http\Request;
 
@@ -9,8 +10,10 @@ class UserViewController extends Controller
 {
     public function index()
     {
-        $informasiPublik = InformasiPublik::all();
+        $dropdownInformasiPublik = InformasiPublik::all();
 
-        return view('user.index', compact('informasiPublik'));
+        $informasi = Informasi::first();
+
+        return view('user.index', compact('dropdownInformasiPublik', 'informasi'));
     }
 }
