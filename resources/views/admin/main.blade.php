@@ -163,9 +163,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/kontak" class="nav-link">
-                                <i class="fas fa-phone-square-alt nav-icon"></i>
-                                <p>Kontak</p>
+                            <a href="/admin/sosmed" class="nav-link">
+                                <i class="fas fa-icons nav-icon"></i>
+                                <p>Sosmed</p>
                             </a>
                         </li>
                         <li class="nav-item">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\InformasiPublikController;
+use App\Http\Controllers\SosmedController;
 use App\Http\Controllers\UserViewController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +54,13 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/informasi/edit/{id}', [InformasiController::class, 'edit']);
     Route::put('/admin/informasi/edit/{id}', [InformasiController::class, 'update']);
     Route::get('/admin/informasi/delete/{id}', [InformasiController::class, 'destroy']);
+
+    // Sosmed
+    Route::get('/admin/sosmed', [SosmedController::class, 'index']);
+    Route::post('/admin/sosmed/create', [SosmedController::class, 'store']);
+    Route::get('/admin/sosmed/edit/{id}', [SosmedController::class, 'edit']);
+    Route::put('/admin/sosmed/edit/{id}', [SosmedController::class, 'update']);
+    Route::get('/admin/sosmed/delete/{id}', [SosmedController::class, 'destroy']);
 });
 
 // Berita

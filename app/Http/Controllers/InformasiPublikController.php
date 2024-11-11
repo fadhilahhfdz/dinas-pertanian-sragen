@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Informasi;
 use App\Models\InformasiPublik;
+use App\Models\Sosmed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 
@@ -61,9 +62,10 @@ class InformasiPublikController extends Controller
 
         $dropdownInformasiPublik = InformasiPublik::all();
 
-        $informasi = Informasi::all();
+        $informasi = Informasi::first();
+        $sosmed = Sosmed::first();
 
-        return view('user.informasi-publik', compact('informasiPublik', 'dropdownInformasiPublik', 'informasi'));
+        return view('user.informasi-publik', compact('informasiPublik', 'dropdownInformasiPublik', 'informasi', 'sosmed'));
     }
 
     /**

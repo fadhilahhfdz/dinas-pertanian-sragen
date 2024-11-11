@@ -52,13 +52,13 @@
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $sosmed->x }}" target="_blank"><i
                             class="fab fa-twitter fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $sosmed->facebook }}" target="_blank"><i
                             class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ $sosmed->instagram }}" target="_blank"><i
                             class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="{{ $sosmed->youtube }}" target="_blank"><i
                             class="fab fa-youtube fw-normal"></i></a>
                 </div>
             </div>
@@ -66,12 +66,14 @@
     </div>
     <!-- Topbar End -->
 
-
     <!-- Navbar & Carousel Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
             <a href="/" class="navbar-brand p-0">
-                <h1 class="m-0"><img src="{{ asset($informasi->logo) }}" width="75">DINAS PERTANIAN</h1>
+                <div class="nav-logo-text">
+                    <img src="{{ asset($informasi->logo) }}" width="75">
+                    <h1 class="m-0">{{ $informasi->nama }}</h1>
+                </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -150,24 +152,24 @@
                                 </div>
                                 <div class="d-flex mb-2">
                                     <i class="bi bi-geo-alt text-primary me-2"></i>
-                                    <p class="mb-0">123 Street, New York, USA</p>
+                                    <p class="mb-0">{{ $informasi->alamat }}</p>
                                 </div>
                                 <div class="d-flex mb-2">
                                     <i class="bi bi-envelope-open text-primary me-2"></i>
-                                    <p class="mb-0">info@example.com</p>
+                                    <p class="mb-0">{{ $informasi->email }}</p>
                                 </div>
                                 <div class="d-flex mb-2">
                                     <i class="bi bi-telephone text-primary me-2"></i>
-                                    <p class="mb-0">+012 345 67890</p>
+                                    <p class="mb-0">{{ $informasi->telepon }}</p>
                                 </div>
                                 <div class="d-flex mt-4">
-                                    <a class="btn btn-primary btn-square me-2" href="#"><i
+                                    <a class="btn btn-primary btn-square me-2" href="{{ $sosmed->x }}" target="_blank"><i
                                             class="fab fa-twitter fw-normal"></i></a>
-                                    <a class="btn btn-primary btn-square me-2" href="#"><i
+                                    <a class="btn btn-primary btn-square me-2" href="{{ $sosmed->facebook }}" target="_blank"><i
                                             class="fab fa-facebook-f fw-normal"></i></a>
-                                    <a class="btn btn-primary btn-square me-2" href="#"><i
+                                    <a class="btn btn-primary btn-square me-2" href="{{ $sosmed->youtube }}" target="_blank"><i
                                             class="fab fa-youtube fw-normal"></i></a>
-                                    <a class="btn btn-primary btn-square" href="#"><i
+                                    <a class="btn btn-primary btn-square" href="{{ $sosmed->instagram }}" target="_blank"><i
                                             class="fab fa-instagram fw-normal"></i></a>
                                 </div>
                             </div>

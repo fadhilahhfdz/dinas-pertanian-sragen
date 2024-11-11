@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Informasi;
 use App\Models\InformasiPublik;
+use App\Models\Sosmed;
 use Illuminate\Http\Request;
 
 class UserViewController extends Controller
@@ -14,6 +15,8 @@ class UserViewController extends Controller
 
         $informasi = Informasi::first();
 
-        return view('user.index', compact('dropdownInformasiPublik', 'informasi'));
+        $sosmed = Sosmed::first();
+
+        return view('user.index', compact('dropdownInformasiPublik', 'informasi', 'sosmed'));
     }
 }
