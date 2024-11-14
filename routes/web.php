@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\InformasiPublikController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SosmedController;
 use App\Http\Controllers\UserViewController;
 use Illuminate\Support\Facades\Route;
@@ -61,6 +62,14 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/sosmed/edit/{id}', [SosmedController::class, 'edit']);
     Route::put('/admin/sosmed/edit/{id}', [SosmedController::class, 'update']);
     Route::get('/admin/sosmed/delete/{id}', [SosmedController::class, 'destroy']);
+
+    // Profil
+    Route::get('/admin/profil', [ProfilController::class, 'index']);
+    Route::get('/admin/profil/create', [ProfilController::class, 'create']);
+    Route::post('/admin/profil/create', [ProfilController::class, 'store']);
+    Route::get('/admin/profil/edit/{id}', [ProfilController::class, 'edit']);
+    Route::put('/admin/profil/edit/{id}', [ProfilController::class, 'update']);
+    Route::get('/admin/profil/delete/{id}', [ProfilController::class, 'destroy']);
 });
 
 // Berita
@@ -70,3 +79,6 @@ Route::get('/berita', function () {
 
 // Informasi Publik
 Route::get('/informasi-publik/{id}', [InformasiPublikController::class, 'show']);
+
+// Profil
+Route::get('/profil/{id}', [ProfilController::class, 'show']);

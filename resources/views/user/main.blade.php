@@ -83,11 +83,11 @@
                     <a href="/" class="nav-item nav-link">Beranda</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profil</a>
-                        {{-- @foreach ($profil as $item)
+                        @foreach ($dropdownProfil as $item)
                             <div class="dropdown-menu m-0">
                                 <a href="/profil/{{ Crypt::encryptString($item->id) }}" class="dropdown-item">{{ $item->judul }}</a>
                             </div>
-                        @endforeach --}}
+                        @endforeach
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Informasi
