@@ -10,16 +10,16 @@ use App\Models\Sosmed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 
-class InformasiPublikController extends Controller
+class PelayananUmumController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $informasiPublik = InformasiPublik::all();
+        $pelayananUmum = PelayananUmum::all();
 
-        return view('admin.informasi-publik.index', compact('informasiPublik'));
+        return view('admin.pelayanan-umum.index', compact('pelayananUmum'));
     }
 
     /**
@@ -27,7 +27,7 @@ class InformasiPublikController extends Controller
      */
     public function create()
     {
-        return view('admin.informasi-publik.create');
+        return view('admin.pelayanan-umum.create');
     }
 
     /**
@@ -37,15 +37,15 @@ class InformasiPublikController extends Controller
     {
         try {
             $request->validate([
-                'judul' => 'required|string|max:225',
+                'judul' => 'required|string|max:255',
                 'konten' => 'required',
             ]);
 
-            InformasiPublik::create($request->all());
+            PelayananUmum::create($request->all());
 
-            return redirect('/admin/informasi-publik')->with('sukses', 'Data berhasil disimpan');
+            return redirect('/admin/pelayanan-umum')->with('sukses', 'Data berhasil disimpan');
         } catch (\Exception $e) {
-            return redirect('/admin/informasi-publik/create')->with('gagal', 'Data gagal disimpan ' . $e->getMessage());
+            return redirect('/admin/pelayanan-umum/create')->with('gagal', 'Data gagal disimpan ' . $e->getMessage());
         }
     }
 
@@ -60,16 +60,16 @@ class InformasiPublikController extends Controller
             abort(404, 'Id tidak valid');
         }
 
-        $informasiPublik = InformasiPublik::findOrFail($decryptId);
+        $pelayananUmum = PelayananUmum::findOrFail($decryptId);
 
+        $dropdownPelayananUmum = PelayananUmum::all();
         $dropdownInformasiPublik = InformasiPublik::all();
         $dropdownProfil = Profil::all();
-        $dropdownPelayananUmum = PelayananUmum::all();
 
         $informasi = Informasi::first();
         $sosmed = Sosmed::first();
 
-        return view('user.informasi-publik', compact('informasiPublik', 'dropdownInformasiPublik', 'informasi', 'sosmed', 'dropdownProfil', 'dropdownPelayananUmum'));
+        return view('user.pelayanan-umum', compact('pelayananUmum', 'dropdownPelayananUmum', 'dropdownInformasiPublik', 'dropdownProfil', 'informasi', 'sosmed'));
     }
 
     /**
@@ -77,9 +77,9 @@ class InformasiPublikController extends Controller
      */
     public function edit($id)
     {
-        $informasiPublik = InformasiPublik::findOrFail($id);
+        $pelayananUmum = PelayananUmum::findOrFail($id);
 
-        return view('admin.informasi-publik.edit', compact('informasiPublik'));
+        return view('admin.pelayanan-umum.edit', compact('pelayananUmum'));
     }
 
     /**
@@ -89,17 +89,17 @@ class InformasiPublikController extends Controller
     {
         try {
             $request->validate([
-                'judul' => 'required|string|max:225',
+                'judul' => 'required|string|max:255',
                 'konten' => 'required',
             ]);
 
-            $informasiPublik = InformasiPublik::findOrFail($id);
+            $pelayanUmum = PelayananUmum::findOrFail($id);
 
-            $informasiPublik->update($request->all());
+            $pelayanUmum->update($request->all());
 
-            return redirect('/admin/informasi-publik')->with('sukses', 'Data berhasil diupdate');
+            return redirect('/admin/pelayanan-umum')->with('sukses', 'Data berhasil diupdate');
         } catch (\Exception $e) {
-            return redirect("/admin/informasi-publik/edit/{$id}")->with('gagal', 'Data gagal diupdate ' . $e->getMessage());
+            return redirect("/admin/pelayanan-umum/edit/{$id}")->with('gagal', 'Data gagal diupdate ' . $e->getMessage());
         }
     }
 
@@ -108,9 +108,9 @@ class InformasiPublikController extends Controller
      */
     public function destroy($id)
     {
-        $informasiPublik = InformasiPublik::findOrFail($id);
-        $informasiPublik->delete();
+        $pelayananUmum = PelayananUmum::findOrFail($id);
+        $pelayananUmum->delete();
 
-        return redirect('/admin/informasi-publik')->with('sukses', 'Data berhasil dihapus');
+        return redirect('/admin/pelayanan-umum')->with('sukses', 'Data berhasil dihapus');
     }
 }

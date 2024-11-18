@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\InformasiPublikController;
+use App\Http\Controllers\PelayananUmumController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SosmedController;
 use App\Http\Controllers\UserViewController;
@@ -70,6 +71,14 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/profil/edit/{id}', [ProfilController::class, 'edit']);
     Route::put('/admin/profil/edit/{id}', [ProfilController::class, 'update']);
     Route::get('/admin/profil/delete/{id}', [ProfilController::class, 'destroy']);
+
+    // Pelayanan Umum
+    Route::get('/admin/pelayanan-umum', [PelayananUmumController::class, 'index']);
+    Route::get('/admin/pelayanan-umum/create', [PelayananUmumController::class, 'create']);
+    Route::post('/admin/pelayanan-umum/create', [PelayananUmumController::class, 'store']);
+    Route::get('/admin/pelayanan-umum/edit/{id}', [PelayananUmumController::class, 'edit']);
+    Route::put('/admin/pelayanan-umum/edit/{id}', [PelayananUmumController::class, 'update']);
+    Route::get('/admin/pelayanan-umum/delete/{id}', [PelayananUmumController::class, 'destroy']);
 });
 
 // Berita
@@ -82,3 +91,6 @@ Route::get('/informasi-publik/{id}', [InformasiPublikController::class, 'show'])
 
 // Profil
 Route::get('/profil/{id}', [ProfilController::class, 'show']);
+
+// Pelayanan Umum
+Route::get('/pelayanan-umum/{id}', [PelayananUmumController::class, 'show']);

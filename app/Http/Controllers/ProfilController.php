@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Informasi;
 use App\Models\InformasiPublik;
+use App\Models\PelayananUmum;
 use App\Models\Profil;
 use App\Models\Sosmed;
 use Illuminate\Http\Request;
@@ -63,11 +64,12 @@ class ProfilController extends Controller
 
         $dropdownInformasiPublik = InformasiPublik::all();
         $dropdownProfil = Profil::all();
+        $dropdownPelayananUmum = PelayananUmum::all();
 
         $informasi = Informasi::first();
         $sosmed = Sosmed::first();
 
-        return view('user.profil', compact('profil', 'dropdownInformasiPublik', 'dropdownProfil', 'informasi', 'sosmed'));
+        return view('user.profil', compact('profil', 'dropdownInformasiPublik', 'dropdownProfil', 'informasi', 'sosmed', 'dropdownPelayananUmum'));
     }
 
     /**
