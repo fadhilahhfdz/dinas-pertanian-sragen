@@ -127,7 +127,7 @@ h6,
     margin-left: 25px;
     padding: 35px 0;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     outline: none;
     transition: 0.5s;
@@ -145,7 +145,7 @@ h6,
 
 .navbar-dark .navbar-brand h1 {
     color: #ffffff;
-    font-size: larger;
+    font-size: large;
     white-space: normal;
     word-wrap: break-word;
 }
@@ -154,7 +154,7 @@ h6,
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 500px;
+    width: 400px;
 }
 
 .navbar-dark .navbar-toggler {

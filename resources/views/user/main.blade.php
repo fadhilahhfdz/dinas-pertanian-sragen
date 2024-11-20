@@ -46,19 +46,25 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>{{ isset($informasi) ? $informasi->telepon : '' }}</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>{{ isset($informasi) ? $informasi->email : '' }}</small>
+                    <small class="me-3 text-light"><i
+                            class="fa fa-phone-alt me-2"></i>{{ isset($informasi) ? $informasi->telepon : '' }}</small>
+                    <small class="text-light"><i
+                            class="fa fa-envelope-open me-2"></i>{{ isset($informasi) ? $informasi->email : '' }}</small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ isset($informasi) ? $informasi->x : '' }}" target="_blank"><i
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+                        href="{{ isset($informasi) ? $informasi->x : '' }}" target="_blank"><i
                             class="fab fa-twitter fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ isset($informasi) ? $informasi->facebook : '' }}" target="_blank"><i
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+                        href="{{ isset($informasi) ? $informasi->facebook : '' }}" target="_blank"><i
                             class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{{ isset($informasi) ? $informasi->instagram : '' }}" target="_blank"><i
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+                        href="{{ isset($informasi) ? $informasi->instagram : '' }}" target="_blank"><i
                             class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="{{ isset($informasi) ? $informasi->youtube : '' }}" target="_blank"><i
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle"
+                        href="{{ isset($informasi) ? $informasi->youtube : '' }}" target="_blank"><i
                             class="fab fa-youtube fw-normal"></i></a>
                 </div>
             </div>
@@ -85,7 +91,8 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profil</a>
                         @foreach ($dropdownProfil as $item)
                             <div class="dropdown-menu m-0">
-                                <a href="/profil/{{ Crypt::encryptString($item->id) }}" class="dropdown-item">{{ $item->judul }}</a>
+                                <a href="/profil/{{ Crypt::encryptString($item->id) }}"
+                                    class="dropdown-item">{{ $item->judul }}</a>
                             </div>
                         @endforeach
                     </div>
@@ -116,10 +123,7 @@
                         </div>
                     </div>
                     <a href="/berita" class="nav-item nav-link">Berita</a>
-
                 </div>
-                <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal"
-                    data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
             </div>
         </nav>
 
@@ -166,14 +170,18 @@
                                     <p class="mb-0">{{ isset($informasi) ? $informasi->telepon : '' }}</p>
                                 </div>
                                 <div class="d-flex mt-4">
-                                    <a class="btn btn-primary btn-square me-2" href="{{ isset($informasi) ? $informasi->x : '' }}" target="_blank"><i
+                                    <a class="btn btn-primary btn-square me-2"
+                                        href="{{ isset($informasi) ? $informasi->x : '' }}" target="_blank"><i
                                             class="fab fa-twitter fw-normal"></i></a>
-                                    <a class="btn btn-primary btn-square me-2" href="{{ isset($informasi) ? $informasi->facebook : '' }}" target="_blank"><i
+                                    <a class="btn btn-primary btn-square me-2"
+                                        href="{{ isset($informasi) ? $informasi->facebook : '' }}" target="_blank"><i
                                             class="fab fa-facebook-f fw-normal"></i></a>
-                                    <a class="btn btn-primary btn-square me-2" href="{{ isset($informasi) ? $informasi->youtube : '' }}" target="_blank"><i
+                                    <a class="btn btn-primary btn-square me-2"
+                                        href="{{ isset($informasi) ? $informasi->youtube : '' }}" target="_blank"><i
                                             class="fab fa-youtube fw-normal"></i></a>
-                                    <a class="btn btn-primary btn-square" href="{{ isset($informasi) ? $informasi->instagran : '' }}" target="_blank"><i
-                                            class="fab fa-instagram fw-normal"></i></a>
+                                    <a class="btn btn-primary btn-square"
+                                        href="{{ isset($informasi) ? $informasi->instagran : '' }}"
+                                        target="_blank"><i class="fab fa-instagram fw-normal"></i></a>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">

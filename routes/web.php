@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\InformasiPublikController;
+use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\PelayananUmumController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SosmedController;
@@ -79,6 +81,21 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/pelayanan-umum/edit/{id}', [PelayananUmumController::class, 'edit']);
     Route::put('/admin/pelayanan-umum/edit/{id}', [PelayananUmumController::class, 'update']);
     Route::get('/admin/pelayanan-umum/delete/{id}', [PelayananUmumController::class, 'destroy']);
+
+    // Kategori Berita
+    Route::get('/admin/berita/kategori', [KategoriBeritaController::class, 'index']);
+    Route::post('/admin/berita/kategori/create', [KategoriBeritaController::class, 'store']);
+    Route::get('/admin/berita/kategori/edit/{id}', [KategoriBeritaController::class, 'edit']);
+    Route::put('/admin/berita/kategori/edit/{id}', [KategoriBeritaController::class, 'update']);
+    Route::get('/admin/berita/kategori/delete/{id}', [KategoriBeritaController::class, 'destroy']);
+
+    // Berita
+    Route::get('/admin/berita', [BeritaController::class, 'index']);
+    Route::get('/admin/berita/create', [BeritaController::class, 'create']);
+    Route::post('/admin/berita/create', [BeritaController::class, 'store']);
+    Route::get('/admin/berita/edit/{id}', [BeritaController::class, 'edit']);
+    Route::put('/admin/berita/edit/{id}', [BeritaController::class, 'update']);
+    Route::get('/admin/berita/delete/{id}', [BeritaController::class, 'destroy']);
 });
 
 // Berita

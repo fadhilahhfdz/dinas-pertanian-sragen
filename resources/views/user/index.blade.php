@@ -41,7 +41,7 @@
 
 
     <!-- Full Screen Search Start -->
-    <div class="modal fade" id="searchModal" tabindex="-1">
+    {{-- <div class="modal fade" id="searchModal" tabindex="-1">
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
                 <div class="modal-header border-0">
@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Full Screen Search End -->
 
 
@@ -148,7 +148,7 @@
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
                         <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s"
-                            src="img/about.jpg" style="object-fit: cover;">
+                            src="{{ asset('template-user/img/about.jpg') }}" style="object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -188,7 +188,7 @@
                 <div class="col-lg-4  wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">
                     <div class="position-relative h-100">
                         <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s"
-                            src="img/feature.jpg" style="object-fit: cover;">
+                            src="{{ asset('template-user/img/feature.jpg') }}" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -472,7 +472,7 @@
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.6s">
                 <div class="testimonial-item bg-light my-4">
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                        <img class="img-fluid rounded" src="img/testimonial-1.jpg" style="width: 60px; height: 60px;">
+                        <img class="img-fluid rounded" src="{{ asset('template-user/img/testimonial-1.jpg') }}" style="width: 60px; height: 60px;">
                         <div class="ps-4">
                             <h4 class="text-primary mb-1">Client Name</h4>
                             <small class="text-uppercase">Profession</small>
@@ -484,7 +484,7 @@
                 </div>
                 <div class="testimonial-item bg-light my-4">
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                        <img class="img-fluid rounded" src="img/testimonial-2.jpg" style="width: 60px; height: 60px;">
+                        <img class="img-fluid rounded" src="{{ asset('template-user/img/testimonial-2.jpg') }}" style="width: 60px; height: 60px;">
                         <div class="ps-4">
                             <h4 class="text-primary mb-1">Client Name</h4>
                             <small class="text-uppercase">Profession</small>
@@ -496,7 +496,7 @@
                 </div>
                 <div class="testimonial-item bg-light my-4">
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                        <img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;">
+                        <img class="img-fluid rounded" src="{{ asset('template-user/img/testimonial-3.jpg') }}" style="width: 60px; height: 60px;">
                         <div class="ps-4">
                             <h4 class="text-primary mb-1">Client Name</h4>
                             <small class="text-uppercase">Profession</small>
@@ -508,7 +508,7 @@
                 </div>
                 <div class="testimonial-item bg-light my-4">
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                        <img class="img-fluid rounded" src="img/testimonial-4.jpg" style="width: 60px; height: 60px;">
+                        <img class="img-fluid rounded" src="{{ asset('template-user/img/testimonial-4.jpg') }}" style="width: 60px; height: 60px;">
                         <div class="ps-4">
                             <h4 class="text-primary mb-1">Client Name</h4>
                             <small class="text-uppercase">Profession</small>
@@ -535,7 +535,7 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
                     <div class="team-item bg-light rounded overflow-hidden">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{ asset('template-user/img/team-1.jpg') }}" alt="">
                             <div class="team-social">
                                 <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i
                                         class="fab fa-twitter fw-normal"></i></a>
@@ -556,7 +556,7 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
                     <div class="team-item bg-light rounded overflow-hidden">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{ asset('template-user/img/team-2.jpg') }}" alt="">
                             <div class="team-social">
                                 <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i
                                         class="fab fa-twitter fw-normal"></i></a>
@@ -577,7 +577,7 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
                     <div class="team-item bg-light rounded overflow-hidden">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{ asset('template-user/img/team-3.jpg') }}" alt="">
                             <div class="team-social">
                                 <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i
                                         class="fab fa-twitter fw-normal"></i></a>
@@ -612,7 +612,7 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/blog-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('template-user/img/blog-1.jpg') }}" alt="">
                             <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
                                 href="">Web Design</a>
                         </div>
@@ -630,7 +630,7 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/blog-2.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('template-user/img/blog-2.jpg') }}" alt="">
                             <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
                                 href="">Web Design</a>
                         </div>
@@ -648,7 +648,7 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/blog-3.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('template-user/img/blog-3.jpg') }}" alt="">
                             <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
                                 href="">Web Design</a>
                         </div>
@@ -668,21 +668,20 @@
     </div>
     <!-- Blog Start -->
 
-
     <!-- Vendor Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5 mb-5">
             <div class="bg-white">
                 <div class="owl-carousel vendor-carousel">
-                    <img src="img/vendor-1.jpg" alt="">
-                    <img src="img/vendor-2.jpg" alt="">
-                    <img src="img/vendor-3.jpg" alt="">
-                    <img src="img/vendor-4.jpg" alt="">
-                    <img src="img/vendor-5.jpg" alt="">
-                    <img src="img/vendor-6.jpg" alt="">
-                    <img src="img/vendor-7.jpg" alt="">
-                    <img src="img/vendor-8.jpg" alt="">
-                    <img src="img/vendor-9.jpg" alt="">
+                    <img src="{{ asset('template-user/img/vendor-1.jpg') }}" alt="">
+                    <img src="{{ asset('template-user/img/vendor-2.jpg') }}" alt="">
+                    <img src="{{ asset('template-user/img/vendor-3.jpg') }}" alt="">
+                    <img src="{{ asset('template-user/img/vendor-4.jpg') }}" alt="">
+                    <img src="{{ asset('template-user/img/vendor-5.jpg') }}" alt="">
+                    <img src="{{ asset('template-user/img/vendor-6.jpg') }}" alt="">
+                    <img src="{{ asset('template-user/img/vendor-7.jpg') }}" alt="">
+                    <img src="{{ asset('template-user/img/vendor-8.jpg') }}" alt="">
+                    <img src="{{ asset('template-user/img/vendor-9.jpg') }}" alt="">
                 </div>
             </div>
         </div>
