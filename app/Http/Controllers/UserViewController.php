@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use App\Models\Informasi;
 use App\Models\InformasiPublik;
 use App\Models\PelayananUmum;
@@ -18,9 +19,10 @@ class UserViewController extends Controller
         $dropdownPelayananUmum = PelayananUmum::all();
 
         $informasi = Informasi::first();
-
         $sosmed = Sosmed::first();
+        
+        $berita = Berita::latest()->paginate(3);
 
-        return view('user.index', compact('dropdownInformasiPublik', 'informasi', 'sosmed', 'dropdownProfil', 'dropdownPelayananUmum'));
+        return view('user.index', compact('dropdownInformasiPublik', 'informasi', 'sosmed', 'dropdownProfil', 'dropdownPelayananUmum', 'berita'));
     }
 }

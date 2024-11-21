@@ -3,8 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Informasi;
+use App\Models\InformasiPublik;
 use App\Models\KategoriBerita;
+use App\Models\PelayananUmum;
+use App\Models\Profil;
+use App\Models\Sosmed;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class BeritaController extends Controller
 {
@@ -105,5 +111,49 @@ class BeritaController extends Controller
         $berita->delete();
 
         return redirect('/admin/berita')->with('sukses', 'Data berhasil dihapus');
+    }
+
+    public function berita_all()
+    {
+        // dropdown
+        $dropdownInformasiPublik = InformasiPublik::all();
+        $dropdownProfil = Profil::all();
+        $dropdownPelayananUmum = PelayananUmum::all();
+
+        $informasi = Informasi::first();
+        $sosmed = Sosmed::first();
+
+        $berita = Berita::latest()->paginate(10);
+        $kategoriBerita = KategoriBerita::all();
+
+        return view('user.berita.berita-all', compact('dropdownInformasiPublik', 'dropdownProfil', 'informasi', 'sosmed', 'berita', 'kategoriBerita', 'dropdownPelayananUmum'));
+    }
+
+    public function berita_by_kategori($id)
+    {
+        try {
+            $decryptId = Crypt::decryptString($id);
+        } catch (\Illuminate\Contracts\Encryption\DecryptException $e) {
+            abort(404, 'Id tidak valid');
+        }
+
+        $kategoriBerita = KategoriBerita::findOrFail($decryptId);
+        $berita = Berita::where('id_kategori', $decryptId)->latest()->paginate(10);
+        $kategoriBeritaAll = KategoriBerita::all();
+
+        // dropdown
+        $dropdownInformasiPublik = InformasiPublik::all();
+        $dropdownProfil = Profil::all();
+        $dropdownPelayananUmum = PelayananUmum::all();
+
+        $informasi = Informasi::first();
+        $sosmed = Sosmed::first();
+
+        return view('user.berita.berita-by-kategori', compact('kategoriBerita', 'berita', 'kategoriBeritaAll', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed'));
+    }
+
+    public function search(Request $request)
+    {
+
     }
 }

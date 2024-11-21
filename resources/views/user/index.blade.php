@@ -36,7 +36,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-</div>
+    </div>
     <!-- Navbar & Carousel End -->
 
 
@@ -472,7 +472,8 @@
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.6s">
                 <div class="testimonial-item bg-light my-4">
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                        <img class="img-fluid rounded" src="{{ asset('template-user/img/testimonial-1.jpg') }}" style="width: 60px; height: 60px;">
+                        <img class="img-fluid rounded" src="{{ asset('template-user/img/testimonial-1.jpg') }}"
+                            style="width: 60px; height: 60px;">
                         <div class="ps-4">
                             <h4 class="text-primary mb-1">Client Name</h4>
                             <small class="text-uppercase">Profession</small>
@@ -484,7 +485,8 @@
                 </div>
                 <div class="testimonial-item bg-light my-4">
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                        <img class="img-fluid rounded" src="{{ asset('template-user/img/testimonial-2.jpg') }}" style="width: 60px; height: 60px;">
+                        <img class="img-fluid rounded" src="{{ asset('template-user/img/testimonial-2.jpg') }}"
+                            style="width: 60px; height: 60px;">
                         <div class="ps-4">
                             <h4 class="text-primary mb-1">Client Name</h4>
                             <small class="text-uppercase">Profession</small>
@@ -496,7 +498,8 @@
                 </div>
                 <div class="testimonial-item bg-light my-4">
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                        <img class="img-fluid rounded" src="{{ asset('template-user/img/testimonial-3.jpg') }}" style="width: 60px; height: 60px;">
+                        <img class="img-fluid rounded" src="{{ asset('template-user/img/testimonial-3.jpg') }}"
+                            style="width: 60px; height: 60px;">
                         <div class="ps-4">
                             <h4 class="text-primary mb-1">Client Name</h4>
                             <small class="text-uppercase">Profession</small>
@@ -508,7 +511,8 @@
                 </div>
                 <div class="testimonial-item bg-light my-4">
                     <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                        <img class="img-fluid rounded" src="{{ asset('template-user/img/testimonial-4.jpg') }}" style="width: 60px; height: 60px;">
+                        <img class="img-fluid rounded" src="{{ asset('template-user/img/testimonial-4.jpg') }}"
+                            style="width: 60px; height: 60px;">
                         <div class="ps-4">
                             <h4 class="text-primary mb-1">Client Name</h4>
                             <small class="text-uppercase">Profession</small>
@@ -535,7 +539,8 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
                     <div class="team-item bg-light rounded overflow-hidden">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="{{ asset('template-user/img/team-1.jpg') }}" alt="">
+                            <img class="img-fluid w-100" src="{{ asset('template-user/img/team-1.jpg') }}"
+                                alt="">
                             <div class="team-social">
                                 <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i
                                         class="fab fa-twitter fw-normal"></i></a>
@@ -556,7 +561,8 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
                     <div class="team-item bg-light rounded overflow-hidden">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="{{ asset('template-user/img/team-2.jpg') }}" alt="">
+                            <img class="img-fluid w-100" src="{{ asset('template-user/img/team-2.jpg') }}"
+                                alt="">
                             <div class="team-social">
                                 <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i
                                         class="fab fa-twitter fw-normal"></i></a>
@@ -577,7 +583,8 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
                     <div class="team-item bg-light rounded overflow-hidden">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="{{ asset('template-user/img/team-3.jpg') }}" alt="">
+                            <img class="img-fluid w-100" src="{{ asset('template-user/img/team-3.jpg') }}"
+                                alt="">
                             <div class="team-social">
                                 <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i
                                         class="fab fa-twitter fw-normal"></i></a>
@@ -609,82 +616,50 @@
                 <h1 class="mb-0">Read The Latest Articles from Our Blog Post</h1>
             </div>
             <div class="row g-5">
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('template-user/img/blog-1.jpg') }}" alt="">
-                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
-                                href="">Web Design</a>
-                        </div>
-                        <div class="p-4">
-                            <div class="d-flex mb-3">
-                                <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
-                                <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
+                @foreach ($berita as $item)
+                    @php
+                        // Ekstrak semua tag heading (h1, h2, h3, h4, h5, h6)
+                        preg_match_all('/<h[1-6][^>]*>(.*?)<\/h[1-6]>/is', $item->konten, $headingMatches);
+
+                        // Ekstrak semua tag <img>
+                        preg_match_all('/<img[^>]+>/i', $item->konten, $imgMatches);
+
+                        $headings = $headingMatches[0]; // Array dari semua tag heading
+                        $images = $imgMatches[0]; // Array dari semua tag <img>
+
+                        // Hapus tag heading dan gambar dari konten untuk mendapatkan sisa teks
+                        $hapus_heading = preg_replace('/<h[1-6][^>]*>(.*?)<\/h[1-6]>/is', '', $item->konten);
+                        $hapus_image = preg_replace('/<img[^>]+>/i', '', $hapus_heading);
+                        $teks = \Illuminate\Support\Str::limit($hapus_image, 75);
+                        $img = implode('', $images);
+
+                        $imgSrc = '';
+                        if (!empty($images)) {
+                            preg_match('/src=["\']?([^"\'>]+)["\']?/', $images[0], $srcMatch);
+                            $imgSrc = $srcMatch[1] ?? ''; // URL gambar pertama
+                        }
+                    @endphp
+                    <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+                        <div class="blog-item bg-light rounded overflow-hidden">
+                            <div class="blog-img position-relative overflow-hidden">
+                                <img class="img-fluid" src="{{ $imgSrc }}" alt="">
+                                <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
+                                    href="/berita/by-kategori/{{ Crypt::encryptString($item->kategori->id) }}">{{ $item->kategori->nama }}</a>
                             </div>
-                            <h4 class="mb-3">How to build a website</h4>
-                            <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                            <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>
+                            <div class="p-4">
+                                <div class="d-flex mb-3">
+                                    <small class="me-3"><i class="far fa-user text-primary me-2"></i>{{ $item->author }}</small>
+                                    <small><i class="far fa-calendar-alt text-primary me-2"></i>{{ $item->updated_at->format('d F Y') }}</small>
+                                </div>
+                                <h4 class="mb-3">{{ $item->judul }}</h4>
+                                <p>{!! $teks !!}</p>
+                                <a class="text-uppercase" href="/berita/detail/{{ Crypt::encryptString($item->id) }}">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('template-user/img/blog-2.jpg') }}" alt="">
-                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
-                                href="">Web Design</a>
-                        </div>
-                        <div class="p-4">
-                            <div class="d-flex mb-3">
-                                <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
-                                <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
-                            </div>
-                            <h4 class="mb-3">How to build a website</h4>
-                            <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                            <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('template-user/img/blog-3.jpg') }}" alt="">
-                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
-                                href="">Web Design</a>
-                        </div>
-                        <div class="p-4">
-                            <div class="d-flex mb-3">
-                                <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
-                                <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
-                            </div>
-                            <h4 class="mb-3">How to build a website</h4>
-                            <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                            <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
     <!-- Blog Start -->
-
-    <!-- Vendor Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5 mb-5">
-            <div class="bg-white">
-                <div class="owl-carousel vendor-carousel">
-                    <img src="{{ asset('template-user/img/vendor-1.jpg') }}" alt="">
-                    <img src="{{ asset('template-user/img/vendor-2.jpg') }}" alt="">
-                    <img src="{{ asset('template-user/img/vendor-3.jpg') }}" alt="">
-                    <img src="{{ asset('template-user/img/vendor-4.jpg') }}" alt="">
-                    <img src="{{ asset('template-user/img/vendor-5.jpg') }}" alt="">
-                    <img src="{{ asset('template-user/img/vendor-6.jpg') }}" alt="">
-                    <img src="{{ asset('template-user/img/vendor-7.jpg') }}" alt="">
-                    <img src="{{ asset('template-user/img/vendor-8.jpg') }}" alt="">
-                    <img src="{{ asset('template-user/img/vendor-9.jpg') }}" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Vendor End -->
 @endsection
