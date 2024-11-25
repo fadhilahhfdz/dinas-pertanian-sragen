@@ -3,11 +3,11 @@
     <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
         <div class="row py-5">
             <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-                <h1 class="display-4 text-white animated zoomIn">Berita By Kategori</h1>
-                <h6 class="display-4 text-white animated zoomIn">{{ $kategoriBerita->nama }}</h6>
+                <h1 class="display-4 text-white animated zoomIn">Berita</h1>
+                <h6 class="display-4 text-white animated zoomIn">Hasil Pencarian:</h6>
                 {{-- <a href="" class="h5 text-white">Home</a>
-            <i class="far fa-circle text-white px-2"></i>
-            <a href="" class="h5 text-white">Blog Grid</a> --}}
+                <i class="far fa-circle text-white px-2"></i>
+                <a href="" class="h5 text-white">Blog Grid</a> --}}
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
                 <!-- Blog list Start -->
                 <div class="col-lg-8">
                     <div class="row g-5">
-                        @forelse ($berita as $item)
+                        @forelse ($hasil as $item)
                             @php
                                 // Ekstrak semua tag heading (h1, h2, h3, h4, h5, h6)
                                 preg_match_all('/<h[1-6][^>]*>(.*?)<\/h[1-6]>/is', $item->konten, $headingMatches);
@@ -69,13 +69,12 @@
                         @empty
                             <div class="col-12">
                                 <div class="alert alert-danger">
-                                    <p class="text-center m-0">Tidak ada berita dari kategori {{ $kategoriBerita->nama }}
-                                    </p>
+                                    <p class="text-center m-0">Tidak ada hasil yang ditemukan.</p>
                                 </div>
                             </div>
                         @endforelse
                         <div class="col-12 wow slideInUp" data-wow-delay="0.1s">
-                            {{ $berita->links('vendor.pagination.custom') }}
+                            {{ $hasil->links('vendor.pagination.custom') }}
                         </div>
                     </div>
                 </div>
@@ -102,7 +101,7 @@
                             <h3 class="mb-0">Kategori</h3>
                         </div>
                         <div class="link-animated d-flex flex-column justify-content-start">
-                            @foreach ($kategoriBeritaAll as $item)
+                            @foreach ($kategoriBerita as $item)
                                 <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2"
                                     href="/berita/by-kategori/{{ Crypt::encryptString($item->id) }}"><i
                                         class="bi bi-arrow-right me-2"></i>{{ $item->nama }}</a>
@@ -115,4 +114,5 @@
             </div>
         </div>
     </div>
-<!- @endsection
+    <!-- Blog End -->
+@endsection

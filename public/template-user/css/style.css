@@ -532,3 +532,8 @@ h6,
         margin-bottom: -75px;
     }
 }
+
+.news-text img {
+    width: 100% !important;
+    height: 100% !important;
+}

@@ -101,6 +101,8 @@ Route::group(['middleware' => ['auth']], function() {
 // Berita
 Route::get('/berita', [BeritaController::class, 'berita_all']);
 Route::get('/berita/by-kategori/{id}', [BeritaController::class, 'berita_by_kategori']);
+Route::get('/berita/cari', [BeritaController::class, 'search']);
+Route::get('/berita/detail/{id}', [BeritaController::class, 'show']);
 
 // Informasi Publik
 Route::get('/informasi-publik/{id}', [InformasiPublikController::class, 'show']);

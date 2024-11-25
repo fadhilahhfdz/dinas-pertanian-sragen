@@ -59,7 +59,8 @@
                                         </div>
                                         <h4 class="mb-3">{{ $item->judul }}</h4>
                                         <p>{!! $teks !!}</p>
-                                        <a class="text-uppercase" href="/berita/detail/{{ Crypt::encryptString($item->id) }}">Baca Selengkapnya <i
+                                        <a class="text-uppercase"
+                                            href="/berita/detail/{{ Crypt::encryptString($item->id) }}">Baca Selengkapnya <i
                                                 class="bi bi-arrow-right"></i></a>
                                     </div>
                                 </div>
@@ -82,10 +83,14 @@
                 <div class="col-lg-4">
                     <!-- Search Form Start -->
                     <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
-                        <div class="input-group">
-                            <input type="text" class="form-control p-3 m-0" placeholder="Cari disini...">
-                            <button class="btn btn-primary px-4 m-0"><i class="bi bi-search"></i></button>
-                        </div>
+                        <form action="/berita/cari" method="GET">
+                            <div class="input-group">
+                                <input type="text" name="s" class="form-control p-3 m-0"
+                                    placeholder="Cari disini...">
+                                <button type="submit" class="btn btn-primary px-4 m-0"><i
+                                        class="bi bi-search"></i></button>
+                            </div>
+                        </form>
                     </div>
                     <!-- Search Form End -->
 

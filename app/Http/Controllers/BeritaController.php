@@ -60,9 +60,27 @@ class BeritaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Berita $berita)
+    public function show($id)
     {
-        //
+        try {
+            $decryptId = Crypt::decryptString($id);
+        } catch (\Illuminate\Contracts\Encryption\DecryptException $e) {
+            abort(404, 'Id tidak valid');
+        }
+
+        $berita = Berita::findOrFail($decryptId);
+        $kategoriBerita = KategoriBerita::all();
+        $recent = Berita::latest()->paginate(5);
+
+        // dropdown
+        $dropdownInformasiPublik = InformasiPublik::all();
+        $dropdownProfil = Profil::all();
+        $dropdownPelayananUmum = PelayananUmum::all();
+
+        $informasi = Informasi::first();
+        $sosmed = Sosmed::first();
+
+        return view('user.berita.detail-berita', compact('berita', 'kategoriBerita', 'recent', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed'));
     }
 
     /**
@@ -141,6 +159,30 @@ class BeritaController extends Controller
         $berita = Berita::where('id_kategori', $decryptId)->latest()->paginate(10);
         $kategoriBeritaAll = KategoriBerita::all();
 
+            // dropdown
+            $dropdownInformasiPublik = InformasiPublik::all();
+            $dropdownProfil = Profil::all();
+            $dropdownPelayananUmum = PelayananUmum::all();
+
+            $informasi = Informasi::first();
+            $sosmed = Sosmed::first();
+
+        return view('user.berita.berita-by-kategori', compact('kategoriBerita', 'berita', 'kategoriBeritaAll', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed'));
+    }
+
+    public function search(Request $request)
+    {
+        $searchQuery = $request->input('s');
+        $hasil = Berita::where('judul', 'LIKE', "%{$searchQuery}%")
+                            ->orWhere('author', 'LIKE', "%{$searchQuery}%")
+                            ->orWhere('konten', 'LIKE', "%{$searchQuery}%")
+                            ->orWhereHas('kategori', function($query) use ($searchQuery) {
+                                $query->where('nama', 'LIKE', "%{$searchQuery}%");
+                            })
+                            ->latest()->paginate(5);
+        
+        $kategoriBerita = KategoriBerita::all();
+
         // dropdown
         $dropdownInformasiPublik = InformasiPublik::all();
         $dropdownProfil = Profil::all();
@@ -149,11 +191,6 @@ class BeritaController extends Controller
         $informasi = Informasi::first();
         $sosmed = Sosmed::first();
 
-        return view('user.berita.berita-by-kategori', compact('kategoriBerita', 'berita', 'kategoriBeritaAll', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed'));
-    }
-
-    public function search(Request $request)
-    {
-
+        return view('user.berita.cari-berita', compact('hasil', 'kategoriBerita', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed'));
     }
 }
