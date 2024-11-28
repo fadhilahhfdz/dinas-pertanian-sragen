@@ -53,16 +53,16 @@
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
-                        href="{{ isset($informasi) ? $informasi->x : '' }}" target="_blank"><i
+                        href="{{ isset($sosmed) ? $sosmed->x : '' }}" target="_blank"><i
                             class="fab fa-twitter fw-normal"></i></a>
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
-                        href="{{ isset($informasi) ? $informasi->facebook : '' }}" target="_blank"><i
+                        href="{{ isset($sosmed) ? $sosmed->facebook : '' }}" target="_blank"><i
                             class="fab fa-facebook-f fw-normal"></i></a>
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
-                        href="{{ isset($informasi) ? $informasi->instagram : '' }}" target="_blank"><i
+                        href="{{ isset($sosmed) ? $sosmed->instagram : '' }}" target="_blank"><i
                             class="fab fa-instagram fw-normal"></i></a>
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle"
-                        href="{{ isset($informasi) ? $informasi->youtube : '' }}" target="_blank"><i
+                        href="{{ isset($sosmed) ? $sosmed->youtube : '' }}" target="_blank"><i
                             class="fab fa-youtube fw-normal"></i></a>
                 </div>
             </div>
@@ -169,16 +169,16 @@
                                 </div>
                                 <div class="d-flex mt-4">
                                     <a class="btn btn-primary btn-square me-2"
-                                        href="{{ isset($informasi) ? $informasi->x : '' }}" target="_blank"><i
+                                        href="{{ isset($sosmed) ? $sosmed->x : '' }}" target="_blank"><i
                                             class="fab fa-twitter fw-normal"></i></a>
                                     <a class="btn btn-primary btn-square me-2"
-                                        href="{{ isset($informasi) ? $informasi->facebook : '' }}" target="_blank"><i
+                                        href="{{ isset($sosmed) ? $sosmed->facebook : '' }}" target="_blank"><i
                                             class="fab fa-facebook-f fw-normal"></i></a>
                                     <a class="btn btn-primary btn-square me-2"
-                                        href="{{ isset($informasi) ? $informasi->youtube : '' }}" target="_blank"><i
+                                        href="{{ isset($sosmed) ? $sosmed->youtube : '' }}" target="_blank"><i
                                             class="fab fa-youtube fw-normal"></i></a>
                                     <a class="btn btn-primary btn-square"
-                                        href="{{ isset($informasi) ? $informasi->instagran : '' }}"
+                                        href="{{ isset($sosmed) ? $sosmed->instagran : '' }}"
                                         target="_blank"><i class="fab fa-instagram fw-normal"></i></a>
                                 </div>
                             </div>

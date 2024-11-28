@@ -53,62 +53,49 @@
                     <!-- Comment List Start -->
                     <div class="mb-5">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                            <h3 class="mb-0">3 Comments</h3>
+                            <h3 class="mb-0">{{ isset($berita) ? $berita->komentar()->count() : '0' }} Komentar</h3>
                         </div>
-                        <div class="d-flex mb-4">
-                            <img src="img/user.jpg" class="img-fluid rounded" style="width: 45px; height: 45px;">
-                            <div class="ps-3">
-                                <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                    accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed eirmod</p>
-                                <button class="btn btn-sm btn-light">Reply</button>
+                        @forelse ($berita->komentar()->latest()->paginate(5) as $item)
+                            <div class="d-flex mb-4">
+                                <img src="{{ asset('assets/img/profile.png') }}" class="img-fluid rounded" style="width: 45px; height: 45px;">
+                                <div class="ps-3">
+                                    <h6><a href="#">{{ $item->nama }}</a> <small><i>{{ $item->created_at->format('d F Y') }}</i></small></h6>
+                                    <p>{{ $item->komentar }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="d-flex mb-4">
-                            <img src="img/user.jpg" class="img-fluid rounded" style="width: 45px; height: 45px;">
-                            <div class="ps-3">
-                                <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                    accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed eirmod</p>
-                                <button class="btn btn-sm btn-light">Reply</button>
+                        @empty
+                            <div class="col-12">
+                                <div class="alert alert-danger">
+                                    <p class="text-center m-0">Tidak ada komentar</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="d-flex ms-5 mb-4">
-                            <img src="img/user.jpg" class="img-fluid rounded" style="width: 45px; height: 45px;">
-                            <div class="ps-3">
-                                <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                    accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed eirmod</p>
-                                <button class="btn btn-sm btn-light">Reply</button>
-                            </div>
-                        </div>
+                        @endforelse
                     </div>
                     <!-- Comment List End -->
 
                     <!-- Comment Form Start -->
                     <div class="bg-light rounded p-5">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                            <h3 class="mb-0">Leave A Comment</h3>
+                            <h3 class="mb-0">Tinggalkan Komentar</h3>
                         </div>
-                        <form>
+                        <form action="/berita/detail/{{ Crypt::encryptString($berita->id) }}" method="POST">
+                            @csrf
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control bg-white border-0" placeholder="Your Name"
-                                        style="height: 55px;">
+                                    <input type="hidden" name="id_berita" value="{{ $berita }}">
+                                    <input type="text" class="form-control bg-white border-0" name="nama"
+                                        placeholder="Nama" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control bg-white border-0" placeholder="Your Email"
-                                        style="height: 55px;">
+                                    <input type="email" class="form-control bg-white border-0" name="email"
+                                        placeholder="Email" style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" class="form-control bg-white border-0" placeholder="Website"
-                                        style="height: 55px;">
+                                    <textarea class="form-control bg-white border-0" name="komentar" rows="5" placeholder="Komentar..." required></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control bg-white border-0" rows="5" placeholder="Comment"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Leave Your Comment</button>
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Tinggalkan
+                                        Komentar</button>
                                 </div>
                             </div>
                         </form>
@@ -159,7 +146,9 @@
                             <div class="d-flex rounded overflow-hidden mb-3">
                                 <img class="img-fluid" src="{{ $item->img }}"
                                     style="width: 100px; height: 100px; object-fit: cover;" alt="">
-                                <a href="/berita/detail/{{ Crypt::encryptString($item->id) }}" class="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" style="width: 100%">
+                                <a href="/berita/detail/{{ Crypt::encryptString($item->id) }}"
+                                    class="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0"
+                                    style="width: 100%">
                                     <p>{{ $item->judul }}</p>
                                 </a>
                             </div>

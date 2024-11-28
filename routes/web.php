@@ -5,6 +5,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\InformasiPublikController;
 use App\Http\Controllers\KategoriBeritaController;
+use App\Http\Controllers\KomentarBeritaController;
 use App\Http\Controllers\PelayananUmumController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SosmedController;
@@ -103,6 +104,7 @@ Route::get('/berita', [BeritaController::class, 'berita_all']);
 Route::get('/berita/by-kategori/{id}', [BeritaController::class, 'berita_by_kategori']);
 Route::get('/berita/cari', [BeritaController::class, 'search']);
 Route::get('/berita/detail/{id}', [BeritaController::class, 'show']);
+Route::post('/berita/detail/{id}', [KomentarBeritaController::class, 'store']);
 
 // Informasi Publik
 Route::get('/informasi-publik/{id}', [InformasiPublikController::class, 'show']);
