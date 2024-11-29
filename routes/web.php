@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\FotoTampilanController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\InformasiPublikController;
 use App\Http\Controllers\KategoriBeritaController;
@@ -97,6 +98,13 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/berita/edit/{id}', [BeritaController::class, 'edit']);
     Route::put('/admin/berita/edit/{id}', [BeritaController::class, 'update']);
     Route::get('/admin/berita/delete/{id}', [BeritaController::class, 'destroy']);
+
+    // Foto Tampilan
+    Route::get('/admin/foto-tampilan', [FotoTampilanController::class, 'index']);
+    Route::post('/admin/foto-tampilan/create', [FotoTampilanController::class, 'store']);
+    Route::get('/admin/foto-tampilan/edit/{id}', [FotoTampilanController::class, 'edit']);
+    Route::put('/admin/foto-tampilan/edit/{id}', [FotoTampilanController::class, 'update']);
+    Route::get('/admin/foto-tampilan/delete/{id}', [FotoTampilanController::class, 'destroy']);
 });
 
 // Berita

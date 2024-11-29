@@ -3,7 +3,7 @@
     <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="w-100" src="{{ asset('template-user/img/carousel-1.jpg') }}" alt="Image">
+                <img class="w-100" src="{{ isset($fotoTampilan[0]) ? $fotoTampilan[0]->foto_tampilan : asset('assets/img/default.png') }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
                         <h5 class="text-white text-uppercase mb-3 animated slideInDown">Creative & Innovative</h5>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="w-100" src="{{ asset('template-user/img/carousel-2.jpg') }}" alt="Image">
+                <img class="w-100" src="{{ isset($fotoTampilan[1]) ? $fotoTampilan[1]->foto_tampilan : asset('assets/img/default.png') }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
                         <h5 class="text-white text-uppercase mb-3 animated slideInDown">Creative & Innovative</h5>
