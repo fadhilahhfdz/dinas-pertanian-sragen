@@ -8,6 +8,7 @@ use App\Models\Informasi;
 use App\Models\InformasiPublik;
 use App\Models\PelayananUmum;
 use App\Models\Profil;
+use App\Models\ProgramKegiatan;
 use App\Models\Sosmed;
 use Illuminate\Http\Request;
 
@@ -18,12 +19,13 @@ class UserViewController extends Controller
         $dropdownInformasiPublik = InformasiPublik::all();
         $dropdownProfil = Profil::all();
         $dropdownPelayananUmum = PelayananUmum::all();
+        $dropdownProgramKegiatan = ProgramKegiatan::all();
 
         $informasi = Informasi::first();
         $sosmed = Sosmed::first();
         $fotoTampilan = FotoTampilan::all();
         $berita = Berita::latest()->paginate(3);
 
-        return view('user.index', compact('dropdownInformasiPublik', 'informasi', 'sosmed', 'dropdownProfil', 'dropdownPelayananUmum', 'berita', 'fotoTampilan'));
+        return view('user.index', compact('dropdownInformasiPublik', 'informasi', 'sosmed', 'dropdownProfil', 'dropdownPelayananUmum', 'berita', 'fotoTampilan', 'dropdownProgramKegiatan'));
     }
 }

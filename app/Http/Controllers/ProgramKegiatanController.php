@@ -11,16 +11,16 @@ use App\Models\Sosmed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 
-class ProfilController extends Controller
+class ProgramKegiatanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $profil = Profil::all();
+        $programKegiatan = ProgramKegiatan::all();
 
-        return view('admin.profil.index', compact('profil'));
+        return view('admin.program-kegiatan.index', compact('programKegiatan'));
     }
 
     /**
@@ -28,7 +28,7 @@ class ProfilController extends Controller
      */
     public function create()
     {
-        return view('admin.profil.create');
+        return view('admin.program-kegiatan.create');
     }
 
     /**
@@ -42,11 +42,11 @@ class ProfilController extends Controller
                 'konten' => 'required',
             ]);
 
-            Profil::create($request->all());
+            ProgramKegiatan::create($request->all());
 
-            return redirect('/admin/profil')->with('sukses', 'Data berhasil disimpan');
+            return redirect('/admin/program-kegiatan')->with('sukses', 'Data berhasil disimpan');
         } catch (\Exception $e) {
-            return redirect('/admin/profil/create')->with('gagal', 'Data gagal disimpan ' . $e->getMessage());
+            return redirect('/admin/program-kegiatan/create')->with('gagal', 'Data gagal disimpan ' . $e->getMessage());
         }
     }
 
@@ -61,17 +61,17 @@ class ProfilController extends Controller
             abort(404, 'Id tidak valid');
         }
 
-        $profil = Profil::findOrFail($decryptId);
+        $programKegiatan = ProgramKegiatan::findOrFail($decryptId);
 
+        $dropdownProgramKegiatan = ProgramKegiatan::all();
+        $dropdownPelayananUmum = PelayananUmum::all();
         $dropdownInformasiPublik = InformasiPublik::all();
         $dropdownProfil = Profil::all();
-        $dropdownPelayananUmum = PelayananUmum::all();
-        $dropdownProgramKegiatan = ProgramKegiatan::all();
 
         $informasi = Informasi::first();
         $sosmed = Sosmed::first();
 
-        return view('user.profil', compact('profil', 'dropdownInformasiPublik', 'dropdownProfil', 'informasi', 'sosmed', 'dropdownPelayananUmum', 'dropdownProgramKegiatan'));
+        return view('user.program-kegiatan', compact('programKegiatan', 'dropdownProgramKegiatan','dropdownPelayananUmum', 'dropdownInformasiPublik', 'dropdownProfil', 'informasi', 'sosmed'));
     }
 
     /**
@@ -79,9 +79,9 @@ class ProfilController extends Controller
      */
     public function edit($id)
     {
-        $profil = Profil::findOrFail($id);
+        $programKegiatan = ProgramKegiatan::findOrFail($id);
 
-        return view('admin.profil.edit', compact('profil'));
+        return view('admin.program-kegiatan.edit', compact('programKegiatan'));
     }
 
     /**
@@ -95,13 +95,13 @@ class ProfilController extends Controller
                 'konten' => 'required',
             ]);
 
-            $profil = Profil::findOrFail($id);
+            $programKegiatan = ProgramKegiatan::findOrFail($id);
 
-            $profil->update($request->all());
+            $programKegiatan->update($request->all());
 
-            return redirect('/admin/profil')->with('sukses', 'Data berhasil diupdate');
+            return redirect('/admin/program-kegiatan')->with('sukses', 'Data berhasil diupdate');
         } catch (\Exception $e) {
-            return redirect("admin/profil/edit/{$id}")->with('gagal', 'Data gagal diupdate ' . $e->getMessage());
+            return redirect("/admin/program-kegiatan/edit/{$id}")->with('gagal', 'Data gagal diupdate ' . $e->getMessage());
         }
     }
 
@@ -110,9 +110,9 @@ class ProfilController extends Controller
      */
     public function destroy($id)
     {
-        $profil = Profil::findOrFail($id);
-        $profil->delete();
+        $programKegiatan = ProgramKegiatan::findOrFail($id);
+        $programKegiatan->delete();
 
-        return redirect('/admin/profil')->with('sukses', 'Data berhasil dihapus');
+        return redirect('/admin/program-kegiatan')->with('sukses', 'Data berhasil di hapus');
     }
 }

@@ -174,12 +174,6 @@
                                 <p>Sosmed</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/admin/waktu-layanan" class="nav-link">
-                                <i class="fas fa-tasks nav-icon"></i>
-                                <p>Waktu Layanan</p>
-                            </a>
-                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

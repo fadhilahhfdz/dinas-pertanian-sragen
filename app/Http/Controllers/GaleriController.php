@@ -7,6 +7,7 @@ use App\Models\Informasi;
 use App\Models\InformasiPublik;
 use App\Models\PelayananUmum;
 use App\Models\Profil;
+use App\Models\ProgramKegiatan;
 use App\Models\Sosmed;
 use Illuminate\Http\Request;
 
@@ -66,11 +67,12 @@ class GaleriController extends Controller
         $dropdownInformasiPublik = InformasiPublik::all();
         $dropdownProfil = Profil::all();
         $dropdownPelayananUmum = PelayananUmum::all();
+        $dropdownProgramKegiatan = ProgramKegiatan::all();
 
         $informasi = Informasi::first();
         $sosmed = Sosmed::first();
 
-        return view('user.galeri', compact('galeri', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed'));
+        return view('user.galeri', compact('galeri', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed', 'dropdownProgramKegiatan'));
     }
 
     /**

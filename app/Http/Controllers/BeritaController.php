@@ -8,6 +8,7 @@ use App\Models\InformasiPublik;
 use App\Models\KategoriBerita;
 use App\Models\PelayananUmum;
 use App\Models\Profil;
+use App\Models\ProgramKegiatan;
 use App\Models\Sosmed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -76,11 +77,12 @@ class BeritaController extends Controller
         $dropdownInformasiPublik = InformasiPublik::all();
         $dropdownProfil = Profil::all();
         $dropdownPelayananUmum = PelayananUmum::all();
+        $dropdownProgramKegiatan = ProgramKegiatan::all();
 
         $informasi = Informasi::first();
         $sosmed = Sosmed::first();
 
-        return view('user.berita.detail-berita', compact('berita', 'kategoriBerita', 'recent', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed'));
+        return view('user.berita.detail-berita', compact('berita', 'kategoriBerita', 'recent', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed', 'dropdownProgramKegiatan'));
     }
 
     /**
@@ -137,6 +139,7 @@ class BeritaController extends Controller
         $dropdownInformasiPublik = InformasiPublik::all();
         $dropdownProfil = Profil::all();
         $dropdownPelayananUmum = PelayananUmum::all();
+        $dropdownProgramKegiatan = ProgramKegiatan::all();
 
         $informasi = Informasi::first();
         $sosmed = Sosmed::first();
@@ -144,7 +147,7 @@ class BeritaController extends Controller
         $berita = Berita::latest()->paginate(10);
         $kategoriBerita = KategoriBerita::all();
 
-        return view('user.berita.berita-all', compact('dropdownInformasiPublik', 'dropdownProfil', 'informasi', 'sosmed', 'berita', 'kategoriBerita', 'dropdownPelayananUmum'));
+        return view('user.berita.berita-all', compact('dropdownInformasiPublik', 'dropdownProfil', 'informasi', 'sosmed', 'berita', 'kategoriBerita', 'dropdownPelayananUmum', 'dropdownProgramKegiatan'));
     }
 
     public function berita_by_kategori($id)
@@ -159,15 +162,16 @@ class BeritaController extends Controller
         $berita = Berita::where('id_kategori', $decryptId)->latest()->paginate(10);
         $kategoriBeritaAll = KategoriBerita::all();
 
-            // dropdown
-            $dropdownInformasiPublik = InformasiPublik::all();
-            $dropdownProfil = Profil::all();
-            $dropdownPelayananUmum = PelayananUmum::all();
+        // dropdown
+        $dropdownInformasiPublik = InformasiPublik::all();
+        $dropdownProfil = Profil::all();
+        $dropdownPelayananUmum = PelayananUmum::all();
+        $dropdownProgramKegiatan = ProgramKegiatan::all();
 
-            $informasi = Informasi::first();
-            $sosmed = Sosmed::first();
+        $informasi = Informasi::first();
+        $sosmed = Sosmed::first();
 
-        return view('user.berita.berita-by-kategori', compact('kategoriBerita', 'berita', 'kategoriBeritaAll', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed'));
+        return view('user.berita.berita-by-kategori', compact('kategoriBerita', 'berita', 'kategoriBeritaAll', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed', 'dropdownProgramKegiatan'));
     }
 
     public function search(Request $request)
@@ -187,10 +191,11 @@ class BeritaController extends Controller
         $dropdownInformasiPublik = InformasiPublik::all();
         $dropdownProfil = Profil::all();
         $dropdownPelayananUmum = PelayananUmum::all();
+        $dropdownProgramKegiatan = ProgramKegiatan::all();
 
         $informasi = Informasi::first();
         $sosmed = Sosmed::first();
 
-        return view('user.berita.cari-berita', compact('hasil', 'kategoriBerita', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed'));
+        return view('user.berita.cari-berita', compact('hasil', 'kategoriBerita', 'dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'informasi', 'sosmed', 'dropdownProgramKegiatan'));
     }
 }

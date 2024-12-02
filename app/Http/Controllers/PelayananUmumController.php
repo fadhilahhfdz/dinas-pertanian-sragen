@@ -6,6 +6,7 @@ use App\Models\Informasi;
 use App\Models\InformasiPublik;
 use App\Models\PelayananUmum;
 use App\Models\Profil;
+use App\Models\ProgramKegiatan;
 use App\Models\Sosmed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -65,11 +66,12 @@ class PelayananUmumController extends Controller
         $dropdownPelayananUmum = PelayananUmum::all();
         $dropdownInformasiPublik = InformasiPublik::all();
         $dropdownProfil = Profil::all();
+        $dropdownProgramKegiatan = ProgramKegiatan::all();
 
         $informasi = Informasi::first();
         $sosmed = Sosmed::first();
 
-        return view('user.pelayanan-umum', compact('pelayananUmum', 'dropdownPelayananUmum', 'dropdownInformasiPublik', 'dropdownProfil', 'informasi', 'sosmed'));
+        return view('user.pelayanan-umum', compact('pelayananUmum', 'dropdownPelayananUmum', 'dropdownInformasiPublik', 'dropdownProfil', 'informasi', 'sosmed', 'dropdownProgramKegiatan'));
     }
 
     /**

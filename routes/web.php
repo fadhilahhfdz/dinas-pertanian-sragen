@@ -10,6 +10,7 @@ use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\KomentarBeritaController;
 use App\Http\Controllers\PelayananUmumController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\ProgramKegiatanController;
 use App\Http\Controllers\SosmedController;
 use App\Http\Controllers\UserViewController;
 use Illuminate\Support\Facades\Route;
@@ -113,6 +114,14 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/galeri/edit/{id}', [GaleriController::class, 'edit']);
     Route::put('/admin/galeri/edit/{id}', [GaleriController::class, 'update']);
     Route::get('/admin/galeri/delete/{id}', [GaleriController::class, 'destroy']);
+
+    // Program Kegiatan
+    Route::get('/admin/program-kegiatan', [ProgramKegiatanController::class, 'index']);
+    Route::get('/admin/program-kegiatan/create', [ProgramKegiatanController::class, 'create']);
+    Route::post('/admin/program-kegiatan/create', [ProgramKegiatanController::class, 'store']);
+    Route::get('/admin/program-kegiatan/edit/{id}', [ProgramKegiatanController::class, 'edit']);
+    Route::put('/admin/program-kegiatan/edit/{id}', [ProgramKegiatanController::class, 'update']);
+    Route::get('/admin/program-kegiatan/delete/{id}', [ProgramKegiatanController::class, 'destroy']);
 });
 
 // Berita
@@ -133,3 +142,6 @@ Route::get('/pelayanan-umum/{id}', [PelayananUmumController::class, 'show']);
 
 // Galeri
 Route::get('/galeri', [GaleriController::class, 'show']);
+
+// Program Kegiatan
+Route::get('/program-kegiatan/{id}', [ProgramKegiatanController::class, 'show']);
