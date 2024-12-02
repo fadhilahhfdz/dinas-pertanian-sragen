@@ -127,6 +127,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="/admin/galeri" class="nav-link">
+                                <i class="fas fa-minus nav-icon"></i>
+                                <p>Galeri</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-newspaper"></i>
                                 <p>

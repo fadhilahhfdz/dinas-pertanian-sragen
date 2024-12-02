@@ -6,6 +6,10 @@
     --dark: #091e3e;
 }
 
+/* * {
+    border: 1px solid red !important;
+} */
+
 /*** Spinner ***/
 .spinner {
     width: 40px;
@@ -536,4 +540,14 @@ h6,
 .news-text img {
     width: 100% !important;
     height: 100% !important;
+}
+
+.image-gallery img {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }

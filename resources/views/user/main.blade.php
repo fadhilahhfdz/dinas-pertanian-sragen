@@ -121,6 +121,7 @@
                         </div>
                     </div>
                     <a href="/berita" class="nav-item nav-link">Berita</a>
+                    <a href="/galeri" class="nav-item nav-link">Galeri</a>
                 </div>
             </div>
         </nav>

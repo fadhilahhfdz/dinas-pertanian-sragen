@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\FotoTampilanController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\InformasiPublikController;
 use App\Http\Controllers\KategoriBeritaController;
@@ -105,6 +106,13 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/foto-tampilan/edit/{id}', [FotoTampilanController::class, 'edit']);
     Route::put('/admin/foto-tampilan/edit/{id}', [FotoTampilanController::class, 'update']);
     Route::get('/admin/foto-tampilan/delete/{id}', [FotoTampilanController::class, 'destroy']);
+
+    // Galeri
+    Route::get('/admin/galeri', [GaleriController::class, 'index']);
+    Route::post('/admin/galeri/create', [GaleriController::class, 'store']);
+    Route::get('/admin/galeri/edit/{id}', [GaleriController::class, 'edit']);
+    Route::put('/admin/galeri/edit/{id}', [GaleriController::class, 'update']);
+    Route::get('/admin/galeri/delete/{id}', [GaleriController::class, 'destroy']);
 });
 
 // Berita
@@ -122,3 +130,6 @@ Route::get('/profil/{id}', [ProfilController::class, 'show']);
 
 // Pelayanan Umum
 Route::get('/pelayanan-umum/{id}', [PelayananUmumController::class, 'show']);
+
+// Galeri
+Route::get('/galeri', [GaleriController::class, 'show']);
