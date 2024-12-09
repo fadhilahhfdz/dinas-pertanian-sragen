@@ -28,4 +28,17 @@ class UserViewController extends Controller
 
         return view('user.index', compact('dropdownInformasiPublik', 'informasi', 'sosmed', 'dropdownProfil', 'dropdownPelayananUmum', 'berita', 'fotoTampilan', 'dropdownProgramKegiatan'));
     }
+
+    public function fallback()
+    {
+        $dropdownInformasiPublik = InformasiPublik::all();
+        $dropdownProfil = Profil::all();
+        $dropdownPelayananUmum = PelayananUmum::all();
+        $dropdownProgramKegiatan = ProgramKegiatan::all();
+
+        $informasi = Informasi::first();
+        $sosmed = Sosmed::first();
+
+        return view('user.404', compact('dropdownInformasiPublik', 'dropdownProfil', 'dropdownPelayananUmum', 'dropdownProgramKegiatan', 'informasi', 'sosmed'));
+    }
 }

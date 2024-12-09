@@ -5,10 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Dinas Pertanian - Admin
-    </title>
+    <title>Admin Panel</title>
 
-    {{-- <link rel="icon" href="{{ asset('assets/img/favicon.png') }}"> --}}
+    <link rel="icon" href="{{ asset('assets/img/favicon.png') }}">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -72,7 +71,7 @@
             <p class="brand-link">
                 <img src="{{ asset('assets/img/home.png') }}" alt="Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
-                <span class="brand-text font-weight-light">Dinas Pertanian</span>
+                <span class="brand-text font-weight-light">Admin Panel</span>
             </p>
 
             <!-- Sidebar -->

@@ -71,9 +71,14 @@ class AuthController extends Controller
                 $user->update();
             }
 
-            return redirect("/admin/user-profile/{$id}")->with('sukses', 'Data berhasil diupdate');
+            return redirect("/admin/user-profile/{$id}")->with('sukses', 'Berhasil');
         } catch (\Exception $e) {
-            return redirect("/admin/user-profile{$id}")->with('gagal', 'Data gagal diupdate ' . $e->getMessage());
+            return redirect("/admin/user-profile{$id}")->with('gagal', 'Gagal ' . $e->getMessage());
         }
+    }
+
+    public function fallback()
+    {
+        return view('admin.404');
     }
 }

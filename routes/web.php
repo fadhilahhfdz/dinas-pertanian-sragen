@@ -29,6 +29,9 @@ use Illuminate\Support\Facades\Route;
 // Index
 Route::get('/', [UserViewController::class, 'index']);
 
+// Fallback
+Route::fallback([UserViewController::class, 'fallback']);
+
 // Auth
 Route::get('/register', [AuthController::class, 'index']);
 Route::post('/register', [AuthController::class, 'store']);
@@ -40,6 +43,9 @@ Route::get('/login', function() {
 
 // Admin
 Route::group(['middleware' => ['auth']], function() {
+
+    // Fallback
+    Route::fallback([AuthController::class, 'fallback']);
 
     // Dashboard
     Route::get('/admin/dashboard', [AuthController::class, 'dashboard']);
