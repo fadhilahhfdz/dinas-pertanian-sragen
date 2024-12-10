@@ -141,7 +141,7 @@
                         @foreach ($recent as $item)
                             @php
                                 preg_match('/<img[^>]+src="([^">]+)"/i', $item->konten, $matches);
-                                $item->img = isset($matches[1]) ? $matches[1] : asset('assets/img/profile.png');
+                                $item->img = isset($matches[1]) ? $matches[1] : asset('assets/img/berita.png');
                             @endphp
                             <div class="d-flex rounded overflow-hidden mb-3">
                                 <img class="img-fluid" src="{{ $item->img }}"

@@ -46,7 +46,7 @@
                             <div class="col-md-6 wow slideInUp" data-wow-delay="0.1s">
                                 <div class="blog-item bg-light rounded overflow-hidden">
                                     <div class="blog-img position-relative overflow-hidden">
-                                        <img class="img-fluid" src="{{ $imgSrc }}" alt="">
+                                        <img class="img-fluid" src="{{ !empty($imgSrc) ? $imgSrc : asset('assets/img/berita.png') }}" alt="">
                                         <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
                                             href="/berita/by-kategori/{{ Crypt::encryptString($item->kategori->id) }}">{{ $item->kategori->nama }}</a>
                                     </div>

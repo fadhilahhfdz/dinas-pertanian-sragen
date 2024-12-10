@@ -166,7 +166,7 @@
                                         href="{{ isset($sosmed) ? $sosmed->youtube : '' }}" target="_blank"><i
                                             class="fab fa-youtube fw-normal"></i></a>
                                     <a class="btn btn-primary btn-square"
-                                        href="{{ isset($sosmed) ? $sosmed->instagran : '' }}" target="_blank"><i
+                                        href="{{ isset($sosmed) ? $sosmed->instagram : '' }}" target="_blank"><i
                                             class="fab fa-instagram fw-normal"></i></a>
                                 </div>
                             </div>
