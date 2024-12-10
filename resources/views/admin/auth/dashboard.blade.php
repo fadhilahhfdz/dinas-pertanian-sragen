@@ -26,6 +26,41 @@
                     <p class="m-0">Hallo <strong>{{ auth()->user()->username }}</strong>, Selamat Datang</p>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-secondary"><i class="far fa-newspaper"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Berita</span>
+                                <span class="info-box-number">{{ $berita->count() }}</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-secondary"><i class="fas fa-image"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Galeri</span>
+                                <span class="info-box-number">{{ $galeri->count() }} foto</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-secondary"><i class="fas fa-user-shield"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Admin</span>
+                                <span class="info-box-number">{{ $user->count() }}</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                </div>
                 <!-- /.card -->
             </div><!-- /.container-fluid -->
         </section>

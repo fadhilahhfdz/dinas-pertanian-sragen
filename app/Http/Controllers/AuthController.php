@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
+use App\Models\Galeri;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,7 +51,11 @@ class AuthController extends Controller
     }
 
     public function dashboard() {
-        return view('admin.auth.dashboard');
+        $berita = Berita::all();
+        $galeri = Galeri::all();
+        $user = User::all();
+
+        return view('admin.auth.dashboard', compact('berita', 'galeri', 'user'));
     }
 
     public function profile($id) {

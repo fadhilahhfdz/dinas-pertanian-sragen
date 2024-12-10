@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{ isset($informasi) ? \Illuminate\Support\Str::upper($informasi->nama) : 'web' }}</title>
+    <title>{{ isset($informasi) ? \Illuminate\Support\Str::upper($informasi->nama) : 'Web' }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- Favicon -->
